@@ -1,21 +1,33 @@
-<div align="center">
 
 # Font Mini
 
+Font Mini 客户端可以当做一个 [electron](https://www.electronjs.org/) 的学习案例，该项目是基于 [fontmin](https://github.com/ecomfe/fontmin) 实现的一个压缩中文字体包的工具，免安装。
+
+[点击下载 Font Mini 最新版](https://github.com/night-peiqi/fontmini-app/releases)
+
+# Screenshot
+
 <img width="794" alt="image" src="assets/home.jpg">
 
-A tool for compressing Chinese font packages.
+## Develop
 
-</div>
+```bash
+# 拉取代码仓
+git clone git@github.com:night-peiqi/fontmini-app.git
 
-## About
+# 安装依赖
+npm install
 
-The large size of the Chinese font pack is a problem that countless front-end developers are troubled by, as there are too many Chinese characters, and developers have made many optimization measures for it.
+# 本地运行
+npm run start
 
-Font Mini completely solves this problem by extracting the text it uses from the font pack and generating a smaller new font pack.
+# 应用打包，会打包项目且生成可执行文件.exe
+npm run package
 
-## Usage
+# 制作安装包
+npm run make
+```
 
-1. Upload your font pack.
-2. Enter the text you need.
-3. Click to generate.
+## Related
+
+- [fontmin](https://github.com/ecomfe/fontmin)
