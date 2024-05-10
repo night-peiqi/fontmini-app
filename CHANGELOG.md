@@ -1,6 +1,19 @@
 # 更新日志 
 
 
+### [1.0.3](https://github.com/night-peiqi/fontmini-app/compare/v1.0.2...v1.0.3) (2024-05-10)
+
+
+### ✏️ Documentation | 文档
+
+* Update README.md ([85802dd](https://github.com/night-peiqi/fontmini-app/commit/85802dde98c18a9a66fb189386a3e9a4a7e3a2e2))
+
+
+### ✨ Features | 新功能
+
+* ✨ BrowserWindow使用单例模式 ([cdc5720](https://github.com/night-peiqi/fontmini-app/commit/cdc5720584dafaae480f128b3752f9e239832488))
+* ✨ 更新mac客户端logo图标 ([6511294](https://github.com/night-peiqi/fontmini-app/commit/6511294b5608794943b96c33c6e3eb198f2c7019))
+
 ### [1.0.2](https://github.com/night-peiqi/fontmini-app/compare/v1.0.1...v1.0.2) (2024-05-10)
 
 
