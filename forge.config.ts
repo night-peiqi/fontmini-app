@@ -10,7 +10,7 @@ import { FuseV1Options, FuseVersion } from '@electron/fuses'
 const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
-    icon: 'assets/fontmini-logo.ico',
+    icon: process.platform === 'darwin' ? 'assets/logo.icns' : 'assets/logo.ico',
     name: 'Font Mini'
   },
   rebuildConfig: {},
