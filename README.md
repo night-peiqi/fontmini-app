@@ -3,7 +3,7 @@
 
 Font Mini 客户端是基于 [fontmin](https://github.com/ecomfe/fontmin) 实现的一个压缩字体包的工具，免安装 解压即可使用。
 
-[点击下载 Font Mini 最新版](https://github.com/night-peiqi/fontmini-app/releases)
+[点击下载 Font Mini 客户端](https://github.com/night-peiqi/fontmini-app/releases)
 
 # Screenshot
 
