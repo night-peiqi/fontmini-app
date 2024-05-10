@@ -5,6 +5,8 @@ import type { IUploadFile } from './typings/app-typings'
 import { genFileId } from 'element-plus'
 import type { UploadFile, UploadInstance, UploadProps, UploadRawFile } from 'element-plus'
 
+console.log('✨恭喜你激活系统✨')
+
 const uploadRef = ref<UploadInstance>()
 const extractText = ref('')
 const btnLoading = ref(false)
@@ -45,7 +47,13 @@ const submit = async () => {
       message: '字体包提取成功',
       type: 'success'
     })
+  } else {
+    ElMessage({
+      message: ret,
+      type: 'error'
+    })
   }
+  btnLoading.value = false
 }
 </script>
 
@@ -55,7 +63,6 @@ const submit = async () => {
       <div class="logo">Font Mini</div>
       <el-menu default-active="1" class="my-el-menu-vertical">
         <el-menu-item index="1">
-          <el-icon><setting /></el-icon>
           <template #title>字体包压缩</template>
         </el-menu-item>
       </el-menu>
@@ -109,6 +116,10 @@ const submit = async () => {
       text-align: center;
       font-weight: bold;
       font-size: 24px;
+    }
+
+    .el-menu-item {
+      padding-left: 44px;
     }
 
     .my-el-menu-vertical:not(.el-menu--collapse) {

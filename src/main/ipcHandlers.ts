@@ -23,7 +23,7 @@ const createStaticPath = (dirName: string) => {
 let originFontPackagePath = ''
 
 export const registerIpcHandlers = () => {
-  // Save file
+  // 保存文件
   ipcMain.on('saveFile', (event, filePath: string) => {
     fs.readFile(filePath, (err, data) => {
       if (isInvalid(err)) {
@@ -44,9 +44,13 @@ export const registerIpcHandlers = () => {
     })
   })
 
-  // Generate new font package
+  // 生成新字体包
   ipcMain.handle('generateNewFontPackage', async (event, characterString: string) => {
-    const ret = await new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
+      if (!originFontPackagePath || !characterString) {
+        resolve('请上传字体包并填写文字片段')
+      }
+
       const miniFontPackagePath = createStaticPath('mini-font')
 
       if (!fs.existsSync(miniFontPackagePath)) {
@@ -74,7 +78,5 @@ export const registerIpcHandlers = () => {
           resolve(err)
         })
     })
-
-    return ret
   })
 }
