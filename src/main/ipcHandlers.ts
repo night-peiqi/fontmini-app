@@ -50,6 +50,7 @@ export const registerIpcHandlers = () => {
     return new Promise((resolve, reject) => {
       if (!originFontPackagePath || !characterString) {
         resolve('请上传字体包并填写文字片段')
+        return
       }
 
       const miniFontPackagePath = createStaticPath('mini-font')
