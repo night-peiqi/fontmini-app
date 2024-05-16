@@ -1,6 +1,14 @@
 # 更新日志 
 
 
+### [1.0.4](https://github.com/night-peiqi/fontmini-app/compare/v1.0.3...v1.0.4) (2024-05-16)
+
+
+### ✨ Features | 新功能
+
+* ✨ 不满足生成条件时阻断函数执行 ([c76e051](https://github.com/night-peiqi/fontmini-app/commit/c76e051be516bdb8bd324314aefd5c7a71df760a))
+* ✨ 修改字体包输出路径 ([e14d2b0](https://github.com/night-peiqi/fontmini-app/commit/e14d2b052e588778a9050c8c30ac2ba0e796ed98))
+
 ### [1.0.3](https://github.com/night-peiqi/fontmini-app/compare/v1.0.2...v1.0.3) (2024-05-10)
 
 
