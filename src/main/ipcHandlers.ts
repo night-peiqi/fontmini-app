@@ -10,8 +10,9 @@ type PluginDesc = (...args: any[]) => Transform
 const isInvalid = (val: any) => val !== null && val !== undefined
 
 const createStaticPath = (dirName: string) => {
-  const appPath = app.getAppPath()
-  const staticPath = path.join(appPath, '../minifont__static', dirName)
+  //
+  const userPath = app.getPath('userData')
+  const staticPath = path.join(userPath, 'minifont__static', dirName)
 
   if (!fs.existsSync(staticPath)) {
     fs.mkdirSync(staticPath, { recursive: true })
