@@ -1,7 +1,7 @@
 {
   "name": "fontmini",
   "productName": "fontmini",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "A tool used to compress Chinese font packages.",
   "main": ".vite/build/main.js",
   "scripts": {
