@@ -7,6 +7,8 @@ import type { UploadFile, UploadInstance, UploadProps, UploadRawFile } from 'ele
 
 console.log('✨恭喜你激活系统✨')
 
+const SUPPORTED_FILE_EXT = ['.ttf', '.otf']
+
 const uploadRef = ref<UploadInstance>()
 const extractText = ref('')
 const btnLoading = ref(false)
@@ -24,9 +26,9 @@ const handleExceed: UploadProps['onExceed'] = files => {
 const changeHandler = (file: UploadFile) => {
   const filePath = (file as IUploadFile).raw.path
 
-  if (!filePath.toLowerCase().endsWith('.ttf')) {
+  if (!SUPPORTED_FILE_EXT.some(ext => filePath.toLowerCase().endsWith(ext))) {
     uploadRef.value?.clearFiles()
-    ElMessageBox.alert('目前只支持 *.ttf 格式', '提示', {
+    ElMessageBox.alert('目前只支持 *.ttf，*.otf 格式', '提示', {
       confirmButtonText: '好的',
       closeOnClickModal: true,
       closeOnPressEscape: true

@@ -2,17 +2,13 @@ import fs from 'fs'
 import path from 'path'
 import { app, ipcMain, shell } from 'electron'
 import Fontmin from 'fontmin'
-import rename from 'gulp-rename'
-import type { Transform } from 'stream'
-
-type PluginDesc = (...args: any[]) => Transform
 
 const isInvalid = (val: any) => val !== null && val !== undefined
 
-const createStaticPath = (dirName: string) => {
+const createStaticPath = (...dirNames: string[]) => {
   //
   const userPath = app.getPath('userData')
-  const staticPath = path.join(userPath, 'minifont__static', dirName)
+  const staticPath = path.join(userPath, 'minifont__static', ...dirNames)
 
   if (!fs.existsSync(staticPath)) {
     fs.mkdirSync(staticPath, { recursive: true })
@@ -53,24 +49,37 @@ export const registerIpcHandlers = () => {
         return
       }
 
-      const miniFontPackagePath = createStaticPath('mini-font')
+      const filename = path.parse(originFontPackagePath).name
+
+      const miniFontPackagePath = createStaticPath('mini-font', `${filename}-${new Date().getTime()}`)
 
       if (!fs.existsSync(miniFontPackagePath)) {
         fs.mkdirSync(miniFontPackagePath, { recursive: true })
       }
 
-      new Fontmin()
-        .src(originFontPackagePath)
-        .use(
+      let fontmin = new Fontmin().src(originFontPackagePath)
+
+      if (originFontPackagePath.toLowerCase().endsWith('.ttf')) {
+        fontmin = fontmin.use(
           Fontmin.glyph({
             text: characterString,
             hinting: false
           })
         )
+      } else if (originFontPackagePath.toLowerCase().endsWith('.otf')) {
+        fontmin = fontmin.use(
+          Fontmin.otf2ttf({
+            text: characterString,
+            hinting: false
+          })
+        )
+      }
+
+      fontmin
         .use(
-          rename(path => {
-            path.basename += `-${new Date().getTime()}`
-          }) as unknown as PluginDesc
+          Fontmin.ttf2woff({
+            deflate: true
+          })
         )
         .dest(miniFontPackagePath)
         .run(err => {
